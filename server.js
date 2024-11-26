@@ -20,7 +20,7 @@ app.use((request, response, next) => {
     next();
 });
 
-app.use(encryptionMiddleware);
+//app.use(encryptionMiddleware);
 
 app.use(express.static('public'));
 app.use('/images', express.static('images'));

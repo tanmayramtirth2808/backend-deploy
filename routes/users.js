@@ -17,33 +17,34 @@ router.post('/register', async(request, response) => {
     
     const { username, password } = request.body;
     
-    if(!username || !password)
-    {
-        return response.status(404).json({message: 'Username and password are required'})
-    }
+    // if(!username || !password)
+    // {
+    //     return response.status(404).json({message: 'Username and password are required'})
+    // }
 
-    const encryptedPassword = await bcrypt.hash(password, 10);
+    // const encryptedPassword = await bcrypt.hash(password, 10);
 
-    try
-    {
-        const newUser = new usersSchema.users({
-            username,
-            password: encryptedPassword,
-            role: 'user',
-            image: ''
-        });
+    // try
+    // {
+    //     const newUser = new usersSchema.users({
+    //         username,
+    //         password: encryptedPassword,
+    //         role: 'user',
+    //         image: ''
+    //     });
 
         //await newUser.save();
         
-        response.status(200).json({ message: 'User registered successfully', data: newUser });
+        response.status(200).json({ message: 'User registered successfully' });
     }
-    catch(error)
-    {
-        console.log('Error registering user:', error);
+    // catch(error)
+    // {
+    //     console.log('Error registering user:', error);
         
-        response.status(500).json({ error: 'Internal Server Error' });
-    }
-})
+    //     response.status(500).json({ error: 'Internal Server Error' });
+    // }
+// }
+)
 
 
 router.post('/login', async(request, response) => {
@@ -60,9 +61,9 @@ router.post('/login', async(request, response) => {
 
         //Ronak20240915
         return response.status(200).json({ message: 'Login successful', 
-            authentication_token: 'TestToken',
-            refresh_token: 'TestRefreshToken',
-            role: 'User'
+            // authentication_token: 'TestToken',
+            // refresh_token: 'TestRefreshToken',
+            // role: 'User'
         });
 
         if(!user)
