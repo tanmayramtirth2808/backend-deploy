@@ -25,6 +25,10 @@ app.use(encryptionMiddleware);
 app.use(express.static('public'));
 app.use('/images', express.static('images'));
 
+app.get('/', (request, response) => {
+    response.send("App is running");
+});
+
 const userRouter = require('./routes/users');
 const booksRouter = require('./routes/books');
 const reviewsRouter = require('./routes/reviews');
